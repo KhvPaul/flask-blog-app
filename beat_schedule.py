@@ -15,7 +15,7 @@ BEAT_SCHEDULE = {
     },
     'notify_blog_blogger': {
         'task': 'flaskBlog.blog.notify_blogger',
-        'schedule': crontab(minute='/5'),
+        'schedule': crontab(minute='*/5'),
     },
     'notify_comment_blogger': {
         'task': 'flaskBlog.blog.comment_message',
