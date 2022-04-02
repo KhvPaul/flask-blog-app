@@ -87,4 +87,4 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     FLASK_ENV = 'production'
-    SQLALCHEMY_DATABASE_URI = os.getenv('PROD_DATABASE_URI', default="sqlite:///" + os.path.join(basedir, 'prod.db'))
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', default="sqlite:///" + os.path.join(basedir, 'prod.db'))
