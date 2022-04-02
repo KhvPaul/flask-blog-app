@@ -1,0 +1,38 @@
+{#<div class="d-flex align-items-center justify-content-center flex-column">#}
+    {#        {% include 'auth/blocks/picture_block.html' %}#}
+    {#    {% if blogger.first_name and blogger.last_name %}#}
+        {#        <h5 class="my-3 text-muted text-black-50 text-default">{{ blogger.first_name|title }} {{ blogger.last_name|title }}</h5>#}
+    {#    {% endif %}#}
+{#</div>#}
+{#{% if blogger == current_user %}#}
+    {#    <div class="row mb-1 text-muted text-black-50">#}
+        {#        <button type="button" class="btn btn-dark"#}
+        {#        id="update-blogger-button" data-url="{{ url_for('auth.update_blogger') }}">Update info</button>#}
+        {#        <a  class="btn btn-dark"#}
+        {#        id="update-blogger-picture-button" data-url="{{ url_for('auth.update_picture') }}">Update picture</a>#}
+        {#        <button type="button" class="btn btn-dark"#}
+        {#        id="change-password-button" data-url="{{ url_for('auth.change_password_check') }}">Update password</button>#}
+        {#        <button type="button" class="btn btn-primary create-blog-button" data-url="{{ url_for('blog_bp.create_blog') }}" > Create Blog </button>#}
+    {#    </div>#}
+{#{% endif %}#}
+<div class="card mb-4 bg-none border-default" id="picture-block">
+    <div class="card-body border-default text-center pb-0" id="picture-block">  {#  #}
+        <div>
+            {% include 'auth/blocks/picture_block.html' %}
+            {% if blogger.first_name and blogger.last_name %}
+                <h5 class="my-3">{{ blogger.first_name|title }} {{ blogger.last_name|title }}</h5>
+            {% endif %}
+        </div>
+        {% if blogger == current_user %}
+            <div class="row">
+                <button type="button" class="btn btn-dark"
+                id="update-blogger-button" data-url="{{ url_for('auth.update_blogger') }}">Update info</button>
+                <button type="button" class="btn btn-dark"
+                id="update-blogger-picture-button" data-url="{{ url_for('auth.update_picture') }}">Update picture</button>
+                <button type="button" class="btn btn-dark"
+                id="change-password-button" data-url="{{ url_for('auth.change_password') }}">Update password</button>
+                <button type="button" class="btn btn-primary create-blog-button" data-url="{{ url_for('blog_bp.create_blog') }}" > Create Blog </button>
+            </div>
+        {% endif %}
+    </div>
+</div>

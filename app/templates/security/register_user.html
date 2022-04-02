@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% from "_macros.html" import render_field_with_errors, render_field %}
+
+{% block content %}
+    <div class="text-center d-flex justify-content-center">
+    <main class="form-signin width-300px">
+  <form action="{{ url_for_security('register') }}" method="post" name="login_user_form">
+      {{ register_user_form.hidden_tag() }}
+    <h1 class="h3 mb-3 fw-normal text-white">Sign Up</h1>
+      {{ render_field_with_errors(register_user_form.username, 'batman123', check=register_user_form.errors) }}
+      {{ render_field_with_errors(register_user_form.email, 'example@noreply.com', check=register_user_form.errors) }}
+      {{ render_field_with_errors(register_user_form.password, check=register_user_form.errors) }}
+      {{ render_field_with_errors(register_user_form.password_confirm, check=register_user_form.errors) }}
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+  </form>
+</main>
+    </div>
+{% endblock %}
+

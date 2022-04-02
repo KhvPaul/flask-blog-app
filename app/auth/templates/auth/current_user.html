@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ blogger.username }}
+{% endblock %}
+
+{% block content %}
+    <section id="blogger-profile-content">
+        {% include 'auth/blocks/user_profile_content.html' %}
+    </section>
+{% endblock %}

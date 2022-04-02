@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+    403 - Permission Denied | Blog
+{% endblock %}
+{% block content %}
+    <div class="w3-container" style="padding: 0px 0px 0px 0px;">
+        <h2 style="font-size: 30px;">Sorry!</h2>
+        <h1 style="font-weight:bold; font-size: 36px;">We can't show the resource you're looking for.</h1>
+        <p style="font-size: 16px; opacity: 0.7">Please check that you got correct permissions.<br>Or go to our <a href="{{ url_for('blog_bp.blog_list') }}">home page</a>, and use the menus to navigate to a specific section.</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<div class="d-flex align-items-center justify-content-center flex-column bg-none">
+  {% include 'auth/blocks/picture_block.html' %}
+  <div class="row">
+    {#            <div class="col-sm-3">#}
+      {#              <p class="mb-0 text-muted text-black-50">username</p>#}
+    {#            </div>#}
+    <div class="col-sm-9 text-center w-100">
+      {% if blogger.username == 'president.gov.ua' %}
+        <p class="text-success">{{ blogger.username }}</p>
+      {% endif %}
+      {% if blogger.username == 'gordonua.com' %}
+        <p class="text-muted mb-0 text-danger">{{ blogger.username }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>

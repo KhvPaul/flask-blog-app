@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ blog }}
+{% endblock %}
+{% block content %}
+    <div class="container" id="blog-detail">
+        {% include 'blog/blog_detail_content.html' %}
+    </div>
+{% endblock %}

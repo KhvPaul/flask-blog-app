@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "admin",
+    "description": "Administrator"
+  },
+  {
+    "id": 2,
+    "name": "parser",
+    "description": "Parser Profile"
+  },
+  {
+    "id": 3,
+    "name": "test_user",
+    "description": "User Defined for Tests"
+  }
+]

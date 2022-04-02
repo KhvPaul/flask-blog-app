@@ -1,0 +1,15 @@
+{% from "_macros.html" import render_field_with_errors, render_field %}
+
+<div class="text-center width-300px m-auto">
+  <main class="form-signin width-300px">
+    <form action="{{ url_for('auth.registration') }}" method="post" class="sign-up-form modal-form">
+      {{ form.csrf_token }}
+      <h1 class="h3 mb-3 fw-normal text-white">Registration</h1>
+      {{ render_field_with_errors(form.username, 'batman123', form.errors) }}
+      {{ render_field_with_errors(form.email, 'example@noreply.com', form.errors) }}
+      {{ render_field_with_errors(form.password, check=form.errors) }}
+      {{ render_field_with_errors(form.password_confirm, check=form.errors) }}
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </form>
+  </main>
+</div>

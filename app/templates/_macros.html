@@ -1,0 +1,38 @@
+{% macro render_field_with_errors(field, placeholder='', check=False) %}
+    <div class="form-floating">
+        {% if check %}
+            {% if field.errors %}
+                {{ field(class="form-control is-invalid my-2", placeholder=placeholder) }}
+                {{ field.label(class='form-label') }}
+                <ul>
+                    {% for error in field.errors %}
+                        <li class="red">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                {{ field(class="form-control is-valid my-2", placeholder=placeholder) }}
+                {{ field.label(class='form-label') }}
+            {% endif %}
+        {% else %}
+            {% if field.errors %}
+                {{ field(class="form-control my-2", placeholder=placeholder) }}
+                {{ field.label(class='form-label') }}
+                <ul>
+                    {% for error in field.errors %}
+                        <li class="red">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                {{ field(class="form-control my-2", placeholder=placeholder) }}
+                {{ field.label(class='form-label') }}
+            {% endif %}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro render_field(field, placeholder) %}
+  <div class="form-floating">
+        {{ field(class="form-control", placeholder=placeholder) }}
+        {{ field.label(class='text-black') }}
+    </div>
+{% endmacro %}

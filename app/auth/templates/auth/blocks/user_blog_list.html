@@ -1,0 +1,140 @@
+{#<div class="blogger-blog-list card mb-4 mb-lg-0">#}
+    {#<div class="card-body p-0 blogger-blogs-block ">#}
+        {#    <ul class="list-group list-group-flush rounded-3">#}
+            {#        {% if blogs.items %}#}
+                {#            {% for blog in blogs.items %}#}
+                    {#                {% if blogger != current_user %}#}
+                        {#                    {% if blog.is_posted %}#}
+                            {#                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">#}
+                                {#                            <p class="mb-0"><a href="{{ blog.get_absolute_url() }}">{{ blog.title|truncate(40) }}</a></p>#}
+                            {#                        </li>#}
+                        {#                    {% endif %}#}
+                    {#                {% else %}#}
+                        {#                    <li class="list-group-item d-flex justify-content-between align-items-center p-3 blogger-blog-item">#}
+                            {#                        <p class="mb-0" style="width: 70%;"><a href="{{ blog.get_absolute_url() }}">{{ blog.title|truncate(30) }}</a></p>#}
+                            {#                        <p class="status">#}
+                                {#                            {% if blog.is_posted %}#}
+                                    {#                                Posted#}
+                                {#                            {% else %}#}
+                                    {#                                {% if blog.publication_request %}#}
+                                        {#                                    Review#}
+                                    {#                                {% else %}#}
+                                        {#                                    Rework#}
+                                    {#                                {% endif %}#}
+                                {#                            {% endif %}#}
+                            {#                        </p>#}
+                            {#                        <p class="update-blog-button btn mx-2" style="width: 7.5%;" data-url="{{ url_for('blog_bp.update_blog', blog_route=blog.route) }}?page={{ blogs.page }}">#}
+                                {#                            <img src="{{ url_for('static', filename='blog/images/edit.png') }}" alt="" style="width: 30px;#}
+                                {#                            height: 30px;">#}
+                            {#                        </p>#}
+                            {#                        <p class="delete-blog-button btn mx-2" style="width: 7.5%;" data-url="{{ url_for('blog_bp.delete_blog', blog_route=blog.route) }}?blogger=True&page={{ blogs.page }}">#}
+                                {#                            <img src="{{ url_for('static', filename='blog/images/trash.png') }}" alt="" style="width: 30px;#}
+                                {#                            height: 30px;">#}
+                            {#                        </p>#}
+                        {#                    </li>#}
+                    {#                {% endif %}#}
+                {#            {% endfor %}#}
+            {#        {% else %}#}
+                {#            <li class="list-group-item d-flex justify-content-center align-items-center p-3">It's empty yet...</li>#}
+            {#        {% endif %}#}
+        {#    </ul>#}
+        {#    <!-- Pagination Links-->#}
+        {#    {% if blogs.pages != 1 and blogs.pages != 0 %}#}
+            {#        <div class="d-flex justify-content-center blogger-blogs-paginator">#}
+                {#            <a href="{{ url_for(url_injection, username=blogger.username, page=blogs.prev_num) }}"#}
+                    {#                class="btn btn-outline-dark#}
+                    {#                {% if blogs.page == 1 %}disabled{% endif %}">#}
+                    {#                &laquo;#}
+                    {#                </a><!-- Loop through the number of pages to display a link for each-->#}
+                    {#                {% for page_num in blogs.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}{% if page_num %}#}
+                        {#                    <!-- Check for the active page and set the link to "Active"-->#}
+                        {#                    {% if blogs.page == page_num %}#}
+                            {#                        <a href="{{ url_for(url_injection, username=blogger.username, page=page_num) }}"#}
+                                {#                            class="btn btn-dark">#}
+                                {#                            {{ page_num }}#}
+                            {#                        </a>#}
+                        {#                    {% else %}#}
+                            {#                        <a href="{{ url_for(url_injection, username=blogger.username, page=page_num) }}"#}
+                                {#                            class="btn btn-outline-dark">#}
+                                {#                            {{ page_num }}#}
+                            {#                        </a>#}
+                        {#                    {% endif %}#}
+                    {#                {% else %}#}
+                        {#                    ...#}
+                    {#                {% endif %}#}
+                {#            {% endfor %}    <a href="{{ url_for(url_injection, username=blogger.username, page=blogs.next_num) }}"#}
+                {#            class="btn btn-outline-dark#}
+                {#            {% if blogs.page == blogs.pages %}disabled{% endif %}">#}
+                {#            &raquo;#}
+            {#        </a>#}
+        {#    </div>#}
+    {#{% endif %}#}
+{#</div>#}
+{#</div>#}
+<div class="blogger-blog-list card mb-4 mb-lg-0 bg-none border-default">
+<div class="card-body p-0">
+    <ul class="list-group list-group-flush rounded-3 p-0">
+        {% if blogs.items %}
+            {% for blog in blogs.items %}
+                <li class="list-group-item d-flex justify-content-between align-items-center blogger-blogs-block bg-none p-0">
+                    <p class="mb-0" style="width: 70%;"><a href="{{ blog.get_absolute_url() }}">{{ blog.title|truncate(22) }}</a></p>
+                    {% if blog.is_posted %}
+                        <p style="width: 15%; margin: 0; font-size: 0.8em; color: green"> Posted
+                        {% else %}
+                            {% if blog.publication_request %}
+                                <p style="width: 15%; margin: 0; font-size: 0.8em; color: yellow">Review
+                                {% else %}
+                                    <p style="width: 15%; margin: 0; font-size: 0.8em; color: red">Rework
+                                    {% endif %}
+                                {% endif %}
+                            </p>
+                            <p class="update-blog-button btn mx-2" style="width: 7.5%;" data-url="{{ url_for('blog_bp.update_blog', blog_route=blog.route) }}?page={{ blogs.page }}">
+                                <img src="{{ url_for('static', filename='blog/images/edit.png') }}" alt="" style="width: 30px;
+                                height: 30px;">
+                            </p>
+                            <p class="delete-blog-button btn mx-2" style="width: 7.5%;" data-url="{{ url_for('blog_bp.delete_blog', blog_route=blog.route) }}?blogger=True&page={{ blogs.page }}">
+                                <img src="{{ url_for('static', filename='blog/images/trash.png') }}" alt="" style="width: 30px;
+                                height: 30px;">
+                            </p>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li class="list-group-item d-flex justify-content-center align-items-center p-3">It's empty yet...</li>
+                {% endif %}
+            </ul>
+            <!-- Pagination Links-->
+            {% if blogs.pages != 1 and blogs.pages != 0 %}
+                <div class="d-flex justify-content-center blogger-blogs-paginator">
+                    <a href="{{ url_for(url_injection, username=blogger.username, page=blogs.prev_num) }}"
+                        class="btn btn-outline-light
+                        {% if blogs.page == 1 %}disabled{% endif %}">
+                        &laquo;
+                        </a><!-- Loop through the number of pages to display a link for each-->
+                        {% for page_num in blogs.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}{% if page_num %}
+                            <!-- Check for the active page and set the link to "Active"-->
+                            {% if blogs.page == page_num %}
+                                <a href="{{ url_for(url_injection, username=blogger.username, page=page_num) }}"
+                                    class="btn btn-light">
+                                    {{ page_num }}
+                                </a>
+                            {% else %}
+                                <a href="{{ url_for(url_injection, username=blogger.username, page=page_num) }}"
+                                    class="btn btn-outline-light">
+                                    {{ page_num }}
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            ...
+                        {% endif %}
+                    {% endfor %}    <a href="{{ url_for(url_injection, username=blogger.username, page=blogs.next_num) }}"
+                    class="btn btn-outline-light
+                    {% if blogs.page == blogs.pages %}disabled{% endif %}">
+                    &raquo;
+                </a>
+            </div>
+        {% endif %}
+        {#<p class="text-right mt-3">#}
+            {#   Showing page {{ blogs.page }} of {{ blogs.pages }}#}
+        {#</p>#}
+    </div>
+</div>

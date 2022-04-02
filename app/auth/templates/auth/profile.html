@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ blogger.username }}
+{% endblock %}
+{% block content %}
+    <section class="bg-none" id="blogger-profile-content">
+        <div class="container py-5 parser">
+            {% if 'parser' in blogger.roles %}
+                <div class="row mb-2 mt-1 d-flex justify-content-between flex-wrap">
+                    <div class="col-md-4">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
+                            <div class="col p-1 d-flex flex-column position-static h-100">
+                                {% include 'auth/blocks/parser_picture_block.html' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row g-0 border rounded overflow-scroll flex-md-row mb-4 shadow-sm h-md-250 position-relative m-height-300px">
+                            <div class="col p-2 d-flex flex-column" style="max-height: 270px">
+                                {% include 'auth/blocks/parser_blog_list.html' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col p-2 position-relative">
+                            {% include 'auth/blocks/parser_data_block.html' %}
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row mb-2 mt-1 d-flex justify-content-between flex-wrap">
+                    <div class="col-md-4">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
+                            <div class="col p-1 d-flex flex-column position-static h-100">
+                                {% include 'auth/blocks/blogger_picture_block.html' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-2">
+                        <div class="row g-0 border rounded overflow-scroll flex-md-row shadow-sm h-100 h-md-250 position-relative">
+                            <div class="col p-2 d-flex flex-column">
+                                {% include 'auth/blocks/blogger_blog_list.html' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col p-2 position-relative">
+                            {% include 'auth/blocks/blogger_data_block.html' %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        
+    </section>
+{% endblock %}
+{##}
+{#<div class="col-md-6">#}
+    {#      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-85">#}
+        {#        <div class="col p-4 d-flex flex-column position-static h-100">#}
+            {#            {% if 'parser' in blog.blogger.roles %}#}
+                {#                {% if blog.blogger.username == 'president.gov.ua' %}#}
+                    {#                    <strong class="d-inline-block mb-2">#}
+                    {#                    <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-success">#}
+                    {#                {% endif %}#}
+                    {#                {% if blog.blogger.username == 'gordonua.com' %}#}
+                        {#                    <strong class="d-inline-block mb-2">#}
+                        {#                    <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-danger">#}
+                        {#                {% endif %}#}
+                    {#            {% else %}#}
+                        {#                <strong class="d-inline-block mb-2">#}
+                        {#                <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-{{ blog.blogger.colored_username() }}">#}
+                        {#            {% endif %}#}
+                    {#                    {{ blog.blogger.username }}</a>#}
+                    {#                </strong>#}
+                    {#          <h3 class="mb-0">{{ blog.title|truncate(60) }}</h3>#}
+                    {#          <div class="mb-1 text-muted">{{ blog.get_formatted_post_date() }}</div>#}
+                    {#          <p class="card-text mb-auto">{{ blog.content|truncate(80) }}</p>#}
+                    {#          <a href="{{ blog.get_absolute_url() }}" class="stretched-link">Continue reading</a>#}
+                {#        </div>#}
+            {#      </div>#}
+        {#    </div>#}
+        {#<div class="col-md-6">#}
+            {#      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-85">#}
+                {#        <div class="col p-4 d-flex flex-column position-static h-100">#}
+                    {#            {% if 'parser' in blog.blogger.roles %}#}
+                        {#                {% if blog.blogger.username == 'president.gov.ua' %}#}
+                            {#                    <strong class="d-inline-block mb-2">#}
+                            {#                    <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-success">#}
+                            {#                {% endif %}#}
+                            {#                {% if blog.blogger.username == 'gordonua.com' %}#}
+                                {#                    <strong class="d-inline-block mb-2">#}
+                                {#                    <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-danger">#}
+                                {#                {% endif %}#}
+                            {#            {% else %}#}
+                                {#                <strong class="d-inline-block mb-2">#}
+                                {#                <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-{{ blog.blogger.colored_username() }}">#}
+                                {#            {% endif %}#}
+                            {#                    {{ blog.blogger.username }}</a>#}
+                            {#                </strong>#}
+                            {#          <h3 class="mb-0">{{ blog.title|truncate(60) }}</h3>#}
+                            {#          <div class="mb-1 text-muted">{{ blog.get_formatted_post_date() }}</div>#}
+                            {#          <p class="card-text mb-auto">{{ blog.content|truncate(80) }}</p>#}
+                            {#          <a href="{{ blog.get_absolute_url() }}" class="stretched-link">Continue reading</a>#}
+                        {#        </div>#}
+                    {#      </div>#}
+                {#    </div>#}

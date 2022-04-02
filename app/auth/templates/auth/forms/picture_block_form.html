@@ -1,0 +1,17 @@
+<form action="{{ url_for('auth.update_picture') }}" method="post" enctype="multipart/form-data" class="update-blogger-picture-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div>
+        {% include 'auth/blocks/picture_block.html' %}
+        {% if blogger.first_name and blogger.last_name %}
+            <h5 class="my-3 red">{{ blogger.first_name|title }} {{ blogger.last_name|title }}</h5>
+        {% endif %}
+        <p class="text-muted text-black-50 mb-1">Blogger</p>
+    </div>
+    <div class="row mb-1 text-muted text-black-50">
+        <div class="form-group">
+            {#            <label class="form-label" for="inputFile">File input</label>#}
+            <input class="form-control-file pic-input" type="file" name="inputFile">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

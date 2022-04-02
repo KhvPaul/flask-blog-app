@@ -1,0 +1,189 @@
+.main-container {
+    max-width: 65em;
+}
+
+.navbar-container {
+    max-width: 42em;
+}
+
+.message {
+    /*width: 100vw;*/
+}
+
+.card-body-additional > div {
+    height: 1em;
+}
+p  image {
+    width: 50px;
+    height: 50px;
+}
+.blogger-blogs-paginator > a {
+    margin: 0 5px 15px 5px;
+}
+
+.max-width-100 {
+    max-width: 100%;
+}
+
+.small-h-250 {
+        min-height: 250px; !important;
+    }
+
+.text-default {
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.blogger-blogs-block  {
+    font-size: 0.82em;
+}
+
+.blogger-blogs-block li {
+    max-height: 4em;
+}
+
+.status {
+    margin-left: 6px;
+    font-size: 0.8em;
+}
+
+a {
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.red {
+    color: #f62525;
+    /*color: rgba(33, 36, 40, 0)*/
+}
+
+#modal {
+    margin-top: 15vh;
+    color: #000000;
+}
+
+.m-height-300px {
+    max-height: 300px;
+}
+
+.h-85 {
+    height: 85%;
+}
+
+.bg-none{
+    background-color: #22252900;
+}
+.bg-default{
+    background-color: #252529FF;
+}
+
+.blogger-blog-list {
+    min-height: 29.7vh;
+}
+
+.pic-input {
+    margin: 4vh 4vh;
+}
+
+.blogger-blog-item {
+    width: 295px;!important;
+}
+
+.blogger-blog-item p {
+    max-width: 145px;
+}
+
+.biography{
+    min-height: calc(158px + 29.3vh);
+}
+
+.border-default {
+    border: #333333;
+}
+.modal-content > div {
+    /*background-color: red;*/
+    background-color: rgb(17,18,20);
+    min-width: 310px;
+    border: 2px solid white;
+
+}
+.modal-form {
+    padding: 0 5px 5px 5px;
+}
+
+.image-cropper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+  /*margin-left: -25%; !*centers the image*!*/
+  height: 100%;
+  width: auto;
+}
+
+.parser > div {
+    /*min-height: 40vh;*/
+    max-height: 65vh;
+}
+
+.parser .card-body-additional,  .parsed-blog-list {
+    max-height: 65vh;
+    margin-bottom: 0; !important;
+}
+
+.calc-siblings-height {
+
+}
+
+html, body {
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    overflow: scroll;
+    min-height: 100vh;
+
+}
+
+/*body {*/
+/*    position: relative;*/
+/*}*/
+
+/*footer {*/
+/*    position: absolute;*/
+/*    bottom: 0px;*/
+/*}*/
+
+.max-height-335 {
+    max-height: 335px;
+}
+
+.min-vh-70 {
+    min-height: 70vh;
+}
+
+label{
+    color: rgba(0, 0, 0, 0.77);
+}
+
+textarea.form-control {
+    min-height: 250px; !important;
+}
+
+@media only screen and (max-width: 500px)  {
+
+    .small-mb-2 {
+        margin-bottom: 50px;
+    }
+    
+    .parsed-blog-list {
+        max-height: 200px;
+    }
+
+    .upd-font {
+
+    }
+}

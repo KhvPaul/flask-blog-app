@@ -1,0 +1,23 @@
+{% from "_macros.html" import render_field_with_errors, render_field %}
+
+<div class="text-center m-auto">
+    <main class="modal-form">
+        <form action="{{ url_for('auth.login') }}" method="post" class="log-in-form">
+            {{ form.csrf_token }}
+            <h1 class="h3 mb-3 fw-normal text-white">Please sign in</h1>
+            {{ render_field_with_errors(form.email, 'name@example.com', check=form.errors) }}
+            {{ render_field_with_errors(form.password, check=form.errors) }}
+            <div class="checkbox mb-3">
+                <label class="text-white">
+                    {{ form.remember(value="remember-me") }} Remember me
+                </label>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url_for_security('forgot_password') }}">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Forget Password</button>
+                </a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </main>
+</div>

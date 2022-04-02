@@ -1,0 +1,5 @@
+{% if blog %}
+    <h3>{{ datetime }}: Blog id({{ blog.id }}) was {{ action }}.</h3>
+{% else %}
+    <h3>{{ datetime }}: Comment id({{ comment.id }}) was added.</h3>
+{% endif %}

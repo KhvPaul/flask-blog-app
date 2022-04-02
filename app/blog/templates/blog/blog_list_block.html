@@ -1,0 +1,152 @@
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#21242800"></rect></svg>
+        <div class="container">
+            <div class="carousel-caption text-start">
+                {% if 'parser' in carved_blogs[0].blogger.roles %}
+                    {% if carved_blogs[0].blogger.username == 'president.gov.ua' %}
+                        <strong class="d-inline-block mb-2">
+                        <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[0].blogger.username) }}" class="text-success">
+                        {% endif %}
+                        {% if carved_blogs[0].blogger.username == 'gordonua.com' %}
+                            <strong class="d-inline-block mb-2">
+                            <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[0].blogger.username) }}" class="text-danger">
+                            {% endif %}
+                        {% else %}
+                            <strong class="d-inline-block mb-2">
+                            <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[0].blogger.username) }}" class="text-{{ carved_blogs[0].blogger.colored_username() }}">
+                            {% endif %}
+                        {{ carved_blogs[0].blogger.username }}</a>
+                        </strong>
+                        <h4>{{ carved_blogs[0].title|truncate(55) }}</h4>
+                        <p>{{ carved_blogs[0].content|truncate(65)}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#21242800"></rect></svg>
+            <div class="container">
+                <div class="carousel-caption">
+                    {% if 'parser' in carved_blogs[1].blogger.roles %}
+                        {% if carved_blogs[1].blogger.username == 'president.gov.ua' %}
+                            <strong class="d-inline-block mb-2">
+                            <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[1].blogger.username) }}" class="text-success">
+                            {% endif %}
+                            {% if carved_blogs[1].blogger.username == 'gordonua.com' %}
+                                <strong class="d-inline-block mb-2">
+                                <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[1].blogger.username) }}" class="text-danger">
+                                {% endif %}
+                            {% else %}
+                                <strong class="d-inline-block mb-2">
+                                <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[1].blogger.username) }}" class="text-{{ carved_blogs[1].blogger.colored_username() }}">
+                                {% endif %}
+                            {{ carved_blogs[1].blogger.username }}</a>
+                            </strong>
+                            <h4>{{ carved_blogs[1].title|truncate(55) }}</h4>
+                            <p>{{ carved_blogs[1].content|truncate(65) }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#21242800"></rect></svg>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        {% if 'parser' in carved_blogs[2].blogger.roles %}
+                            {% if carved_blogs[2].blogger.username == 'president.gov.ua' %}
+                                <strong class="d-inline-block mb-2">
+                                <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[2].blogger.username) }}" class="text-success">
+                                {% endif %}
+                                {% if carved_blogs[2].blogger.username == 'gordonua.com' %}
+                                    <strong class="d-inline-block mb-2">
+                                    <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[2].blogger.username) }}" class="text-danger">
+                                    {% endif %}
+                                {% else %}
+                                    <strong class="d-inline-block mb-2">
+                                    <a href="{{ url_for('auth.blogger_profile', username=carved_blogs[2].blogger.username) }}" class="text-{{ carved_blogs[2].blogger.colored_username() }}">
+                                    {% endif %}
+                                {{ carved_blogs[2].blogger.username }}</a>
+                                </strong>
+                                <h4>{{ carved_blogs[2].title|truncate(55) }}</h4>
+                                <p>{{ carved_blogs[2].content|truncate(65) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            {% if blogs %}
+                <div class="row mb-2 mt-1 d-flex justify-content-between flex-wrap">
+                    {% for blog in blogs.items %}
+                        <div class="col-md-6">
+                            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative h-85">
+                                <div class="col p-4 d-flex flex-column position-static h-100">
+                                    {% if 'parser' in blog.blogger.roles %}
+                                        {% if blog.blogger.username == 'president.gov.ua' %}
+                                            <strong class="d-inline-block mb-2">
+                                            <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-success">
+                                            {% endif %}
+                                            {% if blog.blogger.username == 'gordonua.com' %}
+                                                <strong class="d-inline-block mb-2">
+                                                <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-danger">
+                                                {% endif %}
+                                            {% else %}
+                                                <strong class="d-inline-block mb-2">
+                                                <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}" class="text-{{ blog.blogger.colored_username() }}">
+                                                {% endif %}
+                                            {{ blog.blogger.username }}</a>
+                                            </strong>
+                                            <h3 class="mb-0">{{ blog.title|truncate(60) }}</h3>
+                                            <div class="mb-1 text-muted">{{ blog.get_formatted_post_date() }}</div>
+                                            <p class="card-text mb-auto">{{ blog.content|truncate(80) }}</p>
+                                            <a href="{{ blog.get_absolute_url() }}" class="stretched-link">Continue reading</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <!-- Pagination Links-->
+                    <div class="text-right mt-4">
+                        <a href="{{ url_for('blog_bp.blog_list', page=blogs.prev_num) }}"
+                            class="btn btn-outline-light
+                            {% if blogs.page == 1 %}disabled{% endif %}">
+                            &laquo;
+                            </a><!-- Loop through the number of pages to display a link for each-->
+                            {% for page_num in blogs.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}{% if page_num %}
+                                <!-- Check for the active page and set the link to "Active"-->
+                                {% if blogs.page == page_num %}
+                                    <a href="{{ url_for('blog_bp.blog_list', page=page_num) }}"
+                                        class="btn btn-light">
+                                        {{ page_num }}
+                                    </a>
+                                {% else %}
+                                    <a href="{{ url_for('blog_bp.blog_list', page=page_num) }}"
+                                        class="btn btn-outline-light">
+                                        {{ page_num }}
+                                    </a>
+                                {% endif %}
+                            {% else %}
+                                ...
+                            {% endif %}
+                        {% endfor %}    <a href="{{ url_for('blog_bp.blog_list', page=blogs.next_num) }}"
+                        class="btn btn-outline-light
+                        {% if blogs.page == blogs.pages %}disabled{% endif %}">
+                        &raquo;
+                    </a>
+                </div>
+                <p class="text-right mt-3">
+                    Showing page {{ blogs.page }} of {{ blogs.pages }}
+                </p>

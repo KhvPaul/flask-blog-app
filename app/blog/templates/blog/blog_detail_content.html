@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center mt-2">
+    <h3><strong>{{ blog }}</strong></h3>
+    {% if blog.blogger == current_user %}
+        <button type="button" class="update-blog-button btn btn-primary mx-2" data-url="{{ url_for('blog_bp.update_blog', blog_route=blog.route) }}" > Edit </button>
+        <button type="button" class="delete-blog-button btn btn-danger" data-url="{{ url_for('blog_bp.delete_blog', blog_route=blog.route) }}" > Delete </button>
+    {% endif %}
+</div>
+<p> {{ blog.get_formatted_post_date() }}
+    {% if blog.blogger == current_user %}
+        <a href="{{ url_for('auth.authenticated_user_profile') }}">{{ blog.blogger.username }}</a>
+    {% else %}
+        <a href="{{ url_for('auth.blogger_profile', username=blog.blogger.username) }}">{{ blog.blogger.username }}</a>
+    {% endif %}
+</p>
+<p>{{ blog.content }}</p>
+<div class="container">
+    <h4>Comments: <button type="button" class="create-comment-button btn btn-primary mb-2 ms-3" data-url="{{ url_for('blog_bp.create_comment', blog_route=blog.route) }}"> Create comment </button></h4>
+    {% for comment in blog.comments %}
+        {% if comment.is_posted %}
+            <div class="container ps-0">
+                <p class="m-0"><b>{{ comment.get_formatted_post_date() }} {{ comment.author }}</b></p>
+                <p>{{ comment.content }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

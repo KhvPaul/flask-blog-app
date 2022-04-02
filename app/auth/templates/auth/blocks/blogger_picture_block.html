@@ -1,0 +1,7 @@
+<div class="d-flex align-items-center justify-content-center flex-column">
+    {% include 'auth/blocks/picture_block.html' %}
+    {% if blogger.first_name and blogger.last_name %}
+        <h5 class="my-3 text-muted text-default">{{ blogger.first_name|title }} {{ blogger.last_name|title }}</h5>
+    {% endif %}
+    <p class="text-muted mb-1 text-default">Blogger</p>
+</div>

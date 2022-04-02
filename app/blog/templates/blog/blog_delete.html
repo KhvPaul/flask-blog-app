@@ -1,0 +1,18 @@
+<div class="text-white">
+    <form method="post"
+        {% if page %}
+            action="{{ url_for('blog_bp.delete_blog', blog_route=blog.route) }}?page={{ page }}" class="modal-form delete-blog-blogger-form"
+        {% else %}
+            action="{{ url_for('blog_bp.delete_blog', blog_route=blog.route) }}" class="modal-form"
+        {% endif %}
+        >
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="modal-body">
+            <p> Delete blog <b>"{{ blog.title }}"</b></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

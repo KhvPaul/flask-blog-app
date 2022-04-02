@@ -1,0 +1,3 @@
+{% if current_user.is_authenticated %}
+    <button type="button" class="create-blog-button btn btn-primary" data-url="{{ url_for('blog_bp.create_blog') }}?next=True" > Create </button>
+{% endif %}

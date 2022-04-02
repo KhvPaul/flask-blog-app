@@ -1,0 +1,117 @@
+{##}
+{#    <div class="col-sm-4">#}
+  {#    <div class="row">#}
+    {#            <div class="col-sm-3">#}
+      {#              <p class="mb-0 text-muted text-black-50">username</p>#}
+    {#            </div>#}
+    {#            <div class="col-sm-9">#}
+      {#              <p class="text-muted mb-0">{{ blogger.username }}</p>#}
+    {#            </div>#}
+  {#          </div>#}
+  {#          <hr>#}
+  {#          <div class="row">#}
+    {#            <div class="col-sm-3">#}
+      {#              <p class="mb-0 text-muted font-weight-bold text-black-50">Email</p>#}
+    {#            </div>#}
+    {#            <div class="col-sm-9">#}
+      {#              <p class="text-muted mb-0">{{ blogger.email }}</p>#}
+    {#            </div>#}
+  {#          </div>#}
+  {#          {% if blogger.address %}#}
+    {#            <hr>#}
+    {#            <div class="row">#}
+      {#              <div class="col-sm-3">#}
+        {#                <p class="mb-0 text-muted font-weight-bold text-black-50">Address</p>#}
+      {#              </div>#}
+      {#              <div class="col-sm-9">#}
+        {#                <p class="text-muted mb-0">{{ blogger.address }}</p>#}
+      {#              </div>#}
+    {#            </div>#}
+  {#          {% endif %}#}
+  {#          {% if blogger.phone %}#}
+    {#            <hr>#}
+    {#            <div class="row">#}
+      {#              <div class="col-sm-3">#}
+        {#                <p class="mb-0 text-muted font-weight-bold text-black-50">Phone</p>#}
+      {#              </div>#}
+      {#              <div class="col-sm-9">#}
+        {#                <p class="text-muted mb-0">{{ blogger.phone }}</p>#}
+      {#              </div>#}
+    {#            </div>#}
+  {#          {% endif %}#}
+{#</div>#}
+{#<div class="col-sm-8">#}
+  {#    <div class=" bg-none overflow-scroll">#}
+    {#<div class=" p-0 ">#}
+      {#{% if blogger.bio %}#}
+        {#            <p class="text-white" style="min-height: 100px; max-height: 125px">#}
+          {#                {{ blogger.bio }}#}
+          {##}
+        {#            </p>#}
+      {#{% endif %}#}
+      {##}
+    {#</div>#}
+  {#</div>#}
+{#</div>#}
+{##}
+{##}
+{##}
+<div class="col-lg-8" id="personal-data-column">
+  <div class="card mb-4  bg-none border-default">
+    <div class="card-body card-body-additional">
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">username</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">{{ blogger.username }}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Email</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">{{ blogger.email }}</p>
+        </div>
+      </div>
+      {% if blogger.address %}
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">Address</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">{{ blogger.address }}</p>
+          </div>
+        </div>
+      {% endif %}
+      {% if blogger.phone %}
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0">Phone</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">{{ blogger.phone }}</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-md-12" style="min-height: 60%">
+    <div class="card mb-4 mb-md-0 bg-none border-default" style="min-height: 100px">
+      <div class="card-body" style="min-height: 40vh">
+        <h4>Biography </h4>
+        <p style="min-height: 100px; max-height: 300px" class="overflow-scroll">
+          {% if blogger.bio %}
+            {{ blogger.bio }}
+          {% else %}
+            Blogger biography is empty...
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

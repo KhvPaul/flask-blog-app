@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+    Blog List
+{% endblock %}
+{% block content %}
+    {% if blogs.items %}
+        {% include 'blog/blog_list_block.html' %}
+    {% else %}
+        <div class="min-vh-70 d-flex align-items-center justify-content-center">
+            <h3>Empty...</h3>
+        </div>
+    {% endif %}
+{% endblock %}

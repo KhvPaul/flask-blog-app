@@ -1,0 +1,11 @@
+<ul class="list-group list-group-flush rounded-3 parsed-blog-list overflow-scroll h-100">
+    {% if blogs %}
+        {% for blog in blogs %}
+            <li class="list-group-item d-flex justify-content-between align-items-center p-3 w-100 bg-none">
+                <p class="mb-0"><a href="{{ blog.get_absolute_url() }}">{{ blog.get_formatted_title(65) }}</a></p>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li class="list-group-item d-flex justify-content-center align-items-center p-3">It's empty yet...</li>
+    {% endif %}
+</ul>
