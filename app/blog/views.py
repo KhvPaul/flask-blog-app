@@ -66,16 +66,16 @@ def create_blog():
             if blog.publication_request:
                 pass
                 # IF CELErY ACTIVE
-                # message_data = {'subject': 'FIY',
-                #                 'recipients': [app.config['MAIL_DEFAULT_SENDER']],
-                #                 'html': render_template('mail/notify_admin.html',
-                #                                         blog=blog,
-                #                                         action='added',
-                #                                         datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                #                                         )
-                #                 }
-                #
-                # notify_admin.apply_async(args=[message_data])
+                message_data = {'subject': 'FIY',
+                                'recipients': [app.config['MAIL_DEFAULT_SENDER']],
+                                'html': render_template('mail/notify_admin.html',
+                                                        blog=blog,
+                                                        action='added',
+                                                        datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                                        )
+                                }
+
+                notify_admin.apply_async(args=[message_data])
             flash('Successfully created new Blog', 'success')
             if request.args.get('next'):
                 return redirect(url_for('blog_bp.show_blog', blog_route=blog.route, home=True), 302)
@@ -138,18 +138,18 @@ def update_blog(blog_route):
             data['html_messages_block'] = render_template('flash_messages.html')
 
             # IF CELErY ACTIVE
-            # if blog.publication_request:
-            #     message_data = {'subject': 'FIY',
-            #                     'sender': app.config['MAIL_DEFAULT_SENDER'],
-            #                     'recipients': [app.config['MAIL_DEFAULT_SENDER']],
-            #                     'html': render_template('mail/notify_admin.html',
-            #                                             blog=blog,
-            #                                             action='updated',
-            #                                             datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            #                                             )
-            #                     }
-            #
-            #     notify_admin.apply_async(args=[message_data])
+            if blog.publication_request:
+                message_data = {'subject': 'FIY',
+                                'sender': app.config['MAIL_DEFAULT_SENDER'],
+                                'recipients': [app.config['MAIL_DEFAULT_SENDER']],
+                                'html': render_template('mail/notify_admin.html',
+                                                        blog=blog,
+                                                        action='updated',
+                                                        datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                                        )
+                                }
+
+                notify_admin.apply_async(args=[message_data])
             return data
         except:
             data['form_is_valid'] = False
@@ -233,16 +233,16 @@ def create_comment(blog_route):  # put application's code here
             data['html_messages_block'] = render_template('flash_messages.html')
 
         # IF CELErY ACTIVE
-        # message_data = {'subject': 'FIY',
-        #                 'sender': app.config['MAIL_DEFAULT_SENDER'],
-        #                 'recipients': [app.config['MAIL_DEFAULT_SENDER']],
-        #                 'html': render_template('mail/notify_admin.html',
-        #                                         comment=comment,
-        #                                         action='added',
-        #                                         datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        #                                         )
-        #                 }
-        # notify_admin.apply_async(args=[message_data])
+        message_data = {'subject': 'FIY',
+                        'sender': app.config['MAIL_DEFAULT_SENDER'],
+                        'recipients': [app.config['MAIL_DEFAULT_SENDER']],
+                        'html': render_template('mail/notify_admin.html',
+                                                comment=comment,
+                                                action='added',
+                                                datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                                )
+                        }
+        notify_admin.apply_async(args=[message_data])
         return data
     else:
         data['html_form'] = render_template('blog/comment_form.html', form=form, blog=blog)
@@ -261,17 +261,17 @@ def contact_us():
         data['form_is_valid'] = True
 
         # IF CELErY ACTIVE
-        # message_data = {'subject': 'FIY',
-        #                 'sender': app.config['MAIL_DEFAULT_SENDER'],
-        #                 'recipients': [app.config['MAIL_DEFAULT_SENDER']],
-        #                 'html': render_template('mail/contact_us.html',
-        #                                         email=form.email.data,
-        #                                         content=form.content.data,
-        #                                         datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        #                                         )
-        #                 }
-        #
-        # notify_admin.apply_async(args=[message_data])
+        message_data = {'subject': 'FIY',
+                        'sender': app.config['MAIL_DEFAULT_SENDER'],
+                        'recipients': [app.config['MAIL_DEFAULT_SENDER']],
+                        'html': render_template('mail/contact_us.html',
+                                                email=form.email.data,
+                                                content=form.content.data,
+                                                datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                                )
+                        }
+
+        notify_admin.apply_async(args=[message_data])
 
         flash('Message send', 'success')
         data['html_messages_block'] = render_template('flash_messages.html')
